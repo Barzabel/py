@@ -67,7 +67,7 @@ class LinkedList:
             else:
                 node1 = node2
                 node2 = node2.next
-            if node2.next == None:
+            if node2 is not None and node2.next == None:
                 self.tail = node1
 
 
