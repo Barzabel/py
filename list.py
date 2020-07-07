@@ -101,9 +101,13 @@ class LinkedList:
         if afterNode == None:
             newNode.next == self.head
             self.head = newNode
+            if self.len()==0:
+                self.head.next = newNode
+                self.tail = newNode
             return
         newNode.next = afterNode.next
         afterNode.next = newNode
+
 
 
 
