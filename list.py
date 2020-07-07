@@ -98,6 +98,10 @@ class LinkedList:
         return x
 
     def insert(self, afterNode, newNode):
+        if afterNode == None:
+            newNode.next == self.head
+            self.head = newNode
+            return
         newNode.next = afterNode.next
         afterNode.next = newNode
 
