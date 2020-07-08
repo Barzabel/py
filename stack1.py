@@ -34,5 +34,48 @@ class Stack:
         return res
 
 
+def postpr(st):
+    res = None
+    ar = st.split(" ")
+    ar = [x for x in ar if x != '']
+    stack1 = Stack()
+    stack2 = Stack()
+
+    for x in ar:
+        stack2.push(x)
+
+    while stack2.count > 0:
+        stack1.push(stack2.pop())
+
+    while stack1.count > 0:
+        if stack1.peek() != "*" and stack1.peek() != "+" and stack1.peek() != "/" and stack1.peek() != "-" and stack1.peek() != "=":
+            stack2.push(stack1.pop())
+
+
+        else:
+            if stack1.peek() == "*":
+                stack2.push(float(stack2.pop()) * float(stack2.pop()))
+
+                stack1.pop()
+            elif stack1.peek() == "+":
+                stack2.push(float(stack2.pop()) + float(stack2.pop()))
+                stack1.pop()
+            elif stack1.peek() == "-":
+                a = stack2.pop()
+                stack2.push(float(stack2.pop()) - float(a))
+                stack1.pop()
+            elif stack1.peek() == "/":
+                a = stack2.pop()
+                stack2.push(float(stack2.pop()) / float(a))
+                stack1.pop()
+            elif stack1.peek() == "=":
+                res = stack2.peek()
+                stack1.pop()
+    res = stack2.peek()
+    return res
+
+
+print(postpr("8 2 + 5 * 9 + ="))
+
 
 
