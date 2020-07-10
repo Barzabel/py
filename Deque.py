@@ -171,14 +171,14 @@ class Deque:
 
 
 
+
+
 def ispalindrom(val):
     a = Deque()
     for x in val:
         a.addTail(x)
     while a.size()>1:
-        tail = a.removeTail()
-        head = a.removeFront()
-        if (tail != head):
+        if (a.removeTail()!= a.removeFront()):
             return False
     return True
 
