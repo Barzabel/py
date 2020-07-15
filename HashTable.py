@@ -25,9 +25,9 @@ class HashTable:
         index = self.seek_slot(value)
         if index is not None:
             self.slots[index] = value
-        else:
-            return 
-
+        return index
+    
+    
     def find(self, value):
         hash1 = self.hash_fun(value)
 
