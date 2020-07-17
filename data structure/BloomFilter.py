@@ -7,19 +7,19 @@ class BloomFilter:
     def __init__(self, f_len):
 
         self.filter_len = f_len
-        self.bit_array = bitarray()
-        self.bit_array.extend([0 for x in range(self.filter_len)])
+        self.bit_array = bitarray(self.filter_len)
+        self.bit_array.setall(0)
         self.m = f_len//2
-        # создаём битовый массив длиной f_len ...
+
 
 
     def hash1(self, str1):
         str1 = str(str1)
-        res = bitarray()
-        res.extend([0 for x in range(self.filter_len)])
+        res = bitarray(self.filter_len)
+        res.setall(0)
         hash = 0
         for c in str1:
-            hash = (((hash + 7)//2) * (ord(c)//3)) % self.filter_len
+            hash = (((hash-7) * (ord(c))*3+13)) % self.filter_len
 
         res[hash%self.m] = 1
         return res
@@ -28,11 +28,11 @@ class BloomFilter:
     def hash2(self, str1):
 
         str1 = str(str1)
-        res = bitarray()
-        res.extend([0 for x in range(self.filter_len)])
+        res = bitarray(self.filter_len)
+        res.setall(0)
         hash = 0
         for c in str1:
-            hash = ((hash+1) * ord(c)) % self.filter_len
+            hash =(((hash-19) * (ord(c))*5+19)) % self.filter_len
 
 
         if self.filter_len%2==1:
