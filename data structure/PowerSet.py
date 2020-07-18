@@ -1,3 +1,11 @@
+"""
+реализовано "множество" на основе ранее написанного класса HashTable.
+
+
+
+"""
+
+
 class HashTable:
     def __init__(self, sz, stp):
         self.size1 = sz
