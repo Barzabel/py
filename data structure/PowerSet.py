@@ -71,7 +71,7 @@ class PowerSet(HashTable):
             self.count = self.count + 1
         else:
             super(PowerSet, self).put(value)
-        self.count = self.count + 1
+            self.count = self.count + 1
 
 
     def getslots(self):
