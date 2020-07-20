@@ -1,5 +1,4 @@
 
-import numpy
 
 
 class NativeCache:
@@ -47,7 +46,7 @@ class NativeCache:
         index = self.hash_fun(key)
 
         if index == None:
-            index = numpy.argmin(self.hits)
+            index = self.hits.index(min(self.hits))
             self.hits[index] = 0
 
         self.slots[index] = key
