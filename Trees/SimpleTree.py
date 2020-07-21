@@ -33,6 +33,9 @@ class SimpleTree:
         return self.__FindNodesByValue(self.Root,val)
 
     def MoveNode(self, OriginalNode, NewParent):
+        if OriginalNode.Parent is not None:
+            OriginalNode.Parent.Children.remove(OriginalNode)
+            
         NewParent.Children.append(OriginalNode)
         OriginalNode.Parent = NewParent
 
