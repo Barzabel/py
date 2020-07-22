@@ -96,6 +96,7 @@ class BST:
         NodeParent = Node1.Parent
         Left = Node1.LeftChild
 
+
         if Node1.RightChild is not None:
 
             Right = Node1.RightChild
@@ -106,9 +107,11 @@ class BST:
 
                 NewNode.RightChild.Parent = NewNode.Parent
                 NewNode.Parent.LeftChild = NewNode.RightChild
+
             NewNode.Parent = Node1.Parent
             NewNode.LeftChild = Left
-            Left.Parent = NewNode
+            if Left is not None:
+                Left.Parent = NewNode
             if NewNode is not Right:
                 NewNode.RightChild = Right
 
@@ -178,8 +181,6 @@ class BST:
             return 1 + self.__count(Node.LeftChild)
         elif Node.LeftChild == None and Node.RightChild == None: #Выход из рекурсии
             return 1
-
-
 
 
 
