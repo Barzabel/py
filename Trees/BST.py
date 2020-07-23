@@ -90,6 +90,8 @@ class BST:
             NewNode = BSTNode(key, val, None)
             self.Root = NewNode
             NewNode.Parent = None
+            
+        return True
 
     def FinMinMax(self, FromNode, FindMax):
         if FindMax:
