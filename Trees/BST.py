@@ -301,13 +301,13 @@ class BST:
     def __inorder(self,Node):
         res = []
         if Node.RightChild is not None and Node.LeftChild is not None:
-            res = self.__inorder(Node.RightChild) + [Node] + self.__inorder(Node.LeftChild)
+            res = self.__inorder(Node.LeftChild) + [Node] + self.__inorder(Node.RightChild)
 
         elif Node.RightChild is not None and Node.LeftChild == None:
             res = self.__inorder(Node.RightChild) + [Node]
 
         elif Node.RightChild == None and Node.LeftChild is not None:
-            res = [Node] + self.__inorder(Node.LeftChild)
+            res = self.__inorder(Node.LeftChild)+[Node]
 
         elif Node.RightChild == None and Node.LeftChild == None:
             return [Node]
@@ -324,7 +324,7 @@ class BST:
     def __pastorder(self,Node):
         res = []
         if Node.RightChild is not None and Node.LeftChild is not None:
-            res = self.__pastorder(Node.RightChild) + self.__pastorder(Node.LeftChild) + [Node]
+            res = self.__pastorder(Node.LeftChild) + self.__pastorder(Node.RightChild) + [Node]
 
         elif Node.RightChild is not None and Node.LeftChild == None:
             res = self.__pastorder(Node.RightChild) + [Node]
@@ -340,7 +340,7 @@ class BST:
     def __preorder(self,Node):
         res = []
         if Node.RightChild is not None and Node.LeftChild is not None:
-            res =[Node]+ self.__pastorder(Node.RightChild) + self.__pastorder(Node.LeftChild)
+            res =[Node]+ self.__pastorder(Node.LeftChild) + self.__pastorder(Node.RightChild)
 
         elif Node.RightChild is not None and Node.LeftChild == None:
             res = [Node] + self.__pastorder(Node.RightChild)
@@ -352,7 +352,6 @@ class BST:
             return [Node]
 
         return res
-
 
 
 
