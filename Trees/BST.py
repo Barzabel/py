@@ -340,13 +340,13 @@ class BST:
     def __preorder(self,Node):
         res = []
         if Node.RightChild is not None and Node.LeftChild is not None:
-            res =[Node]+ self.__pastorder(Node.LeftChild) + self.__pastorder(Node.RightChild)
+            res =[Node]+ self.__preorder(Node.LeftChild) + self.__preorder(Node.RightChild)
 
         elif Node.RightChild is not None and Node.LeftChild == None:
-            res = [Node] + self.__pastorder(Node.RightChild)
+            res = [Node] + self.__preorder(Node.RightChild)
 
         elif Node.RightChild == None and Node.LeftChild is not None:
-            res =  [Node] + self.__pastorder(Node.LeftChild)
+            res =  [Node] + self.__preorder(Node.LeftChild)
 
         elif Node.RightChild == None and Node.LeftChild == None:
             return [Node]
