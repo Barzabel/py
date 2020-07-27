@@ -79,7 +79,7 @@ class BalancedBST:
     def __IsBalanced1(self,node):
         left = self.__maxLright(node)
         right = self.__maxLleft(node)
-        if  ((left-right)>1)and((right-left)>1):
+        if  ((left-right)>1)or((right-left)>1):
             return False
         else:
             return True
