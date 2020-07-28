@@ -29,7 +29,7 @@ class SimpleGraph:
         if self.vertex[v].Value  == None:
             return
         for x in self.vertex:
-            if x is not None:
+            if x.Value is not None:
                 self.RemoveEdge(v,self.vertex.index(x))
         self.vertex[v].Value= None
 
