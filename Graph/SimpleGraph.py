@@ -15,7 +15,7 @@ class SimpleGraph:
 
 
         if v < self.max_vertex and self.vertex[v] is None:
-            NewVer = Vertex(v)
+            NewVer = Vertex(10)
             self.vertex[v]= NewVer
         # ваш код добавления новой вершины
         # с значением value
@@ -31,10 +31,9 @@ class SimpleGraph:
             return
         for x in self.vertex:
             if x is not None:
-                self.RemoveEdge(v,x.Value)
+                self.RemoveEdge(v,self.vertex.index(x))
         self.vertex[v]= None
 
-        pass
 
     def IsEdge(self, v1, v2):
         # True если есть ребро между вершинами v1 и v2
