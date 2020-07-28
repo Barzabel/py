@@ -33,6 +33,11 @@ class Heap:
         child2 = 2
         newindex = None
         while True:
+            if child1>(len(self.HeapArray)-1) or child2>(len(self.HeapArray)-1):
+                break
+
+
+
             if self.HeapArray[child1]==None and self.HeapArray[child2] == None:
                 break
             elif self.HeapArray[child1]==None and self.HeapArray[index]>self.HeapArray[child2]:
@@ -42,7 +47,12 @@ class Heap:
             elif (index==pos) or (self.HeapArray[index]>self.HeapArray[child1]and self.HeapArray[index]>self.HeapArray[child2]):
                 break
             else:
-                if self.HeapArray[child1]>self.HeapArray[child2]:
+                if self.HeapArray[child1]==None:
+                    newindex = child2
+                elif self.HeapArray[child2] == None:
+                    newindex = child1
+                elif self.HeapArray[child1]>self.HeapArray[child2]:
+
                     newindex = child1
                 else:
                     newindex = child2
@@ -52,6 +62,10 @@ class Heap:
                 index = newindex
                 child1 = index*2 + 1
                 child2 = index*2 + 2
+
+
+
+
         return res
 
 
