@@ -4,8 +4,6 @@ class Vertex:
         self.Value = val
 
 
-
-
 class SimpleGraph:
 
     def __init__(self, size):
@@ -28,23 +26,24 @@ class SimpleGraph:
     # в списке  vertex
     def RemoveVertex(self, v):
         # ваш код удаления вершины со всеми её рёбрами
-        if self.vertex[v] is None:
+        if self.vertex[v].Value  == None:
             return
         for x in self.vertex:
             if x is not None:
                 self.RemoveEdge(v,self.vertex.index(x))
-        self.vertex[v]= None
+        self.vertex[v].Value= None
+
 
 
     def IsEdge(self, v1, v2):
         # True если есть ребро между вершинами v1 и v2
-        if self.vertex[v1] is not None and self.vertex[v1] is not None:
+        if self.vertex[v1].Value is not None and self.vertex[v1].Value is not None:
             if self.m_adjacency[v1][v2] == 1 and self.m_adjacency[v2][v1] == 1:
                 return True
         return False
 
     def AddEdge(self, v1, v2):
-        if self.vertex[v1] is not None and self.vertex[v1]is not None:
+        if self.vertex[v1].Value is not None and self.vertex[v1].Value is not None:
             self.m_adjacency[v1][v2] = 1
             self.m_adjacency[v2][v1] = 1
         # добавление ребра между вершинами v1 и v2
@@ -52,8 +51,9 @@ class SimpleGraph:
 
     def RemoveEdge(self, v1, v2):
         # удаление ребра между вершинами v1 и v2
-        if self.vertex[v1] is not None and self.vertex[v1] is not None:
+        if self.vertex[v1].Value is not None and self.vertex[v1].Value is not None:
             self.m_adjacency[v1][v2] = 0
             self.m_adjacency[v2][v1] = 0
+
 
 
