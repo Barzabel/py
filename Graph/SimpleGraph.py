@@ -4,19 +4,20 @@ class Vertex:
         self.Value = val
 
 
+
+
 class SimpleGraph:
 
     def __init__(self, size):
         self.max_vertex = size
         self.m_adjacency = [[0] * size for _ in range(size)]
-        self.vertex = [None] * size
+        self.vertex = [Vertex(None)] * size
 
     def AddVertex(self, v):
 
 
-        if v < self.max_vertex and self.vertex[v] is None:
-            NewVer = Vertex(10)
-            self.vertex[v]= NewVer
+        if v < self.max_vertex and self.vertex[v].Value == None:
+            self.vertex[v].Value = v
         # ваш код добавления новой вершины
         # с значением value
         # в свободное место массива vertex
