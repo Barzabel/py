@@ -156,23 +156,27 @@ class SimpleTree:
             g.AddVertex(x)
         for x in range(self.Count()):
             for c in nods[x].Children:
-                g.AddEdge(x,nods.index(c))
-
+                g.AddEdge(x, nods.index(c))
 
         iter = True
-        while iter:
-            iter = False
+        linesum = 2
+        linesum2 = 2
+        while linesum<len(nods):
             for x in range(len(g.m_adjacency)):
-                if sum(g.m_adjacency[x])%2 ==0:
-                    for y in range(len(g.m_adjacency[x])):
+                if sum(g.m_adjacency[x]) == linesum :
+                    while linesum2 < len(nods):
+                        for y in range(len(g.m_adjacency[x])):
+                            
+                            if g.m_adjacency[x][y] == 1 and sum([c[y] for c in g.m_adjacency]) == linesum2:
+                                res.append(nods[x])
+                                res.append(nods[y])
+                                g.RemoveEdge(x, y)
+                                linesum2 = 2
+                                linesum = 2
+                                break
+                        linesum2 = linesum2+2
+            linesum = linesum +2
 
-                        if g.m_adjacency[x][y]==1 and sum([ x[y] for x in g.m_adjacency])%2==0:
-
-                            res.append(nods[x])
-                            res.append(nods[y])
-                            g.RemoveEdge(x,y)
-                            iter = True
-                            break
         return res
 
 
@@ -186,17 +190,4 @@ class SimpleTree:
 
 
 
-a = SimpleTreeNode(3,None)
-Tree = SimpleTree(a)
-for x in range(100):
-    b = SimpleTreeNode(x,a)
-    Tree.AddChild(a,b)
-    a = b
-graf1 = Tree.EvenTrees()
 
-
-for x in graf1:
-    print(x.NodeValue)
-
-print()
-""""""
