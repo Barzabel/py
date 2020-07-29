@@ -158,24 +158,15 @@ class SimpleTree:
             for c in nods[x].Children:
                 g.AddEdge(x, nods.index(c))
 
-        iter = True
-        linesum = 2
-        linesum2 = 2
-        while linesum<len(nods):
-            for x in range(len(g.m_adjacency)):
-                if sum(g.m_adjacency[x]) == linesum :
-                    while linesum2 < len(nods):
-                        for y in range(len(g.m_adjacency[x])):
-                            
-                            if g.m_adjacency[x][y] == 1 and sum([c[y] for c in g.m_adjacency]) == linesum2:
-                                res.append(nods[x])
-                                res.append(nods[y])
-                                g.RemoveEdge(x, y)
-                                linesum2 = 2
-                                linesum = 2
-                                break
-                        linesum2 = linesum2+2
-            linesum = linesum +2
+
+        for x in range(len(g.m_adjacency)):
+            if sum(g.m_adjacency[x]) >1:
+                for y in range(len(g.m_adjacency[x])):
+                    if g.m_adjacency[x][y] == 1 and sum([c[y] for c in g.m_adjacency]) >1:
+                        res.append(nods[x])
+                        res.append(nods[y])
+                        g.RemoveEdge(x, y)
+                        break
 
         return res
 
