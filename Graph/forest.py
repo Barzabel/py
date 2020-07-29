@@ -172,6 +172,7 @@ class SimpleTree:
                             res.append(nods[y])
                             g.RemoveEdge(x,y)
                             iter = True
+                            break
         return res
 
 
