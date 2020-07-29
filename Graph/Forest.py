@@ -149,6 +149,7 @@ class SimpleTree:
 
 
     def EvenTrees(self):
+        res = []
         g = SimpleGraph(self.Count())
         nods = self.GetAllNodes()
         for x in range(self.Count()):
@@ -158,36 +159,22 @@ class SimpleTree:
                 g.AddEdge(x,nods.index(c))
 
 
-        return g
+        iter = True
+        while iter:
+            iter = False
+            for x in range(len(g.m_adjacency)):
+                if sum(g.m_adjacency[x])%2 ==0:
+                    for y in range(len(g.m_adjacency[x])):
+
+                        if g.m_adjacency[x][y]==1 and sum([ x[y] for x in g.m_adjacency])%2==0:
+
+                            res.append(nods[x])
+                            res.append(nods[y])
+                            g.RemoveEdge(x,y)
+                            iter = True
+        return res
 
 
 
 
 
-
-
-
-
-
-
-"""
-a = SimpleTreeNode(3,None)
-
-
-
-Tree = SimpleTree(a)
-for x in range(3):
-    for l in range(x+1):
-        b = SimpleTreeNode(l,a)
-        Tree.AddChild(a,b)
-
-    a = a.Children[x]
-
-
-
-graf1 = Tree.EvenTrees()
-
-for x in graf1.m_adjacency:
-    print(x)
-
-"""
