@@ -149,24 +149,46 @@ class SimpleTree:
 
 
     def EvenTrees(self):
+
+
+
+
         res = []
-        g = SimpleGraph(self.Count())
-        nods = self.GetAllNodes()
-        for x in range(self.Count()):
-            g.AddVertex(x)
-        for x in range(self.Count()):
-            for c in nods[x].Children:
-                g.AddEdge(x, nods.index(c))
+        grafs = []
+
+        arr = self.GetAllNodes()
+        graf = self.__getgrafchid(self.Root)
+        y = 0
+        sumusel = [x for x in range(1,len(arr),2)]
+
+        sumR = 1
 
 
-        for x in range(len(g.m_adjacency)):
-            if sum(g.m_adjacency[x]) >1:
-                for y in range(len(g.m_adjacency[x])):
-                    if g.m_adjacency[x][y] == 1 and sum([c[y] for c in g.m_adjacency]) >1:
-                        res.append(nods[x])
-                        res.append(nods[y])
-                        g.RemoveEdge(x, y)
-                        break
+
+
+        while sumR <len(arr):
+            indexus = len(graf.m_adjacency) - 1
+            parent = None
+            for x in range(len(graf.m_adjacency) - 1, -1, -1):
+                for c in range(indexus):
+                    if graf.m_adjacency[x][c] == 1:
+                        parent = c
+
+                if  sum(graf.m_adjacency[x][:indexus]) ==1 and len(graf.m_adjacency[x][:indexus])%2==0 and sum(graf.m_adjacency[x][indexus:]) %2 ==1:
+
+                    graf.RemoveEdge(x, parent)
+                    res.append(arr[parent])
+                    res.append(arr[x])
+                    sumR = 1
+
+                    break
+                indexus = indexus-1
+
+
+
+
+            sumR = sumR +2
+
 
         return res
 
