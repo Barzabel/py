@@ -148,6 +148,7 @@ class SimpleTree:
 
 
 
+
     def EvenTrees(self):
 
 
@@ -192,15 +193,14 @@ class SimpleTree:
 
         return res
 
+    def __getgrafchid(self, node):
+        arr = self.__GetAllNodes(node)
 
+        g = SimpleGraph(self.__recount(node))
+        for x in range(self.__recount(node)):
+            g.AddVertex(x)
+        for x in range(self.__recount(node)):
+            for c in arr[x].Children:
+                g.AddEdge(x, arr.index(c))
 
-
-
-
-
-
-
-
-
-
-
+        return g
