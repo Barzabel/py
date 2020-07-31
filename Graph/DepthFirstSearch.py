@@ -140,7 +140,7 @@ class SimpleGraph:
         steck = self.__StackDepthFirstSearch( VFrom, VTo)
         while steck.peek() is not None:
 
-            res.append(steck.pop())
+            res.append(self.vertex[steck.pop()])
         res.reverse()
         return res
 # узлы задаются позициями в списке vertex
