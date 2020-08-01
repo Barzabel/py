@@ -371,7 +371,7 @@ class SimpleGraph:
                         isWeak = False
             if isWeak == True:
                 res.append(self.vertex[x])
-
+        return res
 
 
 
