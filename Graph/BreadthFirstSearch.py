@@ -356,7 +356,10 @@ class SimpleGraph:
 
 
         res.reverse()
-        return res
+        res2 = []
+        for x in res:
+            res2.append(self.vertex[x])
+        return res2
 
 
 
