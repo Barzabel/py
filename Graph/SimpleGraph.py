@@ -1,3 +1,8 @@
+
+
+
+
+
 class Vertex:
 
     def __init__(self, val):
@@ -9,7 +14,9 @@ class SimpleGraph:
     def __init__(self, size):
         self.max_vertex = size
         self.m_adjacency = [[0] * size for _ in range(size)]
-        self.vertex = [Vertex(None)] * size
+        self.vertex = []
+        for x in range(size):
+            self.vertex.append(Vertex(None))
 
     def AddVertex(self, v):
 
@@ -54,7 +61,7 @@ class SimpleGraph:
         if self.vertex[v1].Value is not None and self.vertex[v1].Value is not None:
             self.m_adjacency[v1][v2] = 0
             self.m_adjacency[v2][v1] = 0
-            
+
     def WeakVertices(self):
         res = []
         for x in range(len(self.m_adjacency)):
