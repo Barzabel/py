@@ -61,7 +61,7 @@ class SimpleGraph:
             isWeak = True
             for y in [ v for v in range(len(self.m_adjacency[x])) if self.m_adjacency[x][v]==1]:
                 for z in [ v for v in range(len(self.m_adjacency[x])) if self.m_adjacency[x][v]==1]:
-                    if z != y and z!=x and self.IsEdge(z,y) == True:
+                    if z != y and z!=x and y!=x and self.IsEdge(z,y) == True:
                         isWeak = False
             if isWeak == True:
                 res.append(self.vertex[x])
