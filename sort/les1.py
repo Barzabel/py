@@ -13,6 +13,3 @@ def BubbleSortStep(array):
 
 
 
-array = [1,3,2,4]
-BubbleSortStep(array)
-print(array)
