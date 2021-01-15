@@ -13,6 +13,8 @@ def InsertionSortStep(array: list, step: int, i: int):
 
 
 def KnuthSequence(array_size: int ) -> list:
+	if array_size == 0:
+		return [1,]
 	res = []
 	i = 1
 	while i < array_size:
