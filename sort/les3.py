@@ -17,7 +17,7 @@ def KnuthSequence(array_size: int ) -> list:
 		return [1,]
 	res = []
 	i = 1
-	while i < array_size:
+	while i <= array_size:
 		res.append(i)
 		i = 3 * i + 1
 		
