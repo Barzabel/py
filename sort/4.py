@@ -2,7 +2,7 @@ def ArrayChunk(array: list) -> int:
 	res = len(array) // 2
 	i1 = 0
 	i2 = len(array) - 1
-	for x in range(100):
+	while True:
 		r = array[ res ]
 		while array[i1] < r:
 			i1 += 1
@@ -12,7 +12,7 @@ def ArrayChunk(array: list) -> int:
 
 		if  i1 == i2-1 and array[i1] > array[i2]:
 			array[i1], array[i2] = array[i2], array[i1]
-			r = array[ len(array) // 2 ]
+			
 			i1 = 0
 			i2 = len(array) - 1
 
