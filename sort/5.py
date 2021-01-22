@@ -43,9 +43,9 @@ def QuickSort( array : list, left: int, right: int ) -> None:
 	array[left:right +1] = arr
 	
 	
-	if len(array[left:left + index+1])>3:
+	if len(array[left:left + index+1])>2:
 		QuickSort( array,left, left + index )
 
-	if len(array[left + index:right])>3:	
+	if len(array[left + index:right])>2:	
 		QuickSort( array,left + index,right )
 			
