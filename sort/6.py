@@ -31,10 +31,9 @@ def ArrayChunk(array: list) -> int:
 				res = i1
 			if array[i2] == r:
 				res = i2
-        
-  def QuickSort( array : list, left: int, right: int ) -> None:
 
-
+				
+def QuickSort( array : list, left: int, right: int ) -> None:
 	while left < right:
 
 		arr = array[left:right + 1]
