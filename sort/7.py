@@ -40,8 +40,10 @@ def KthOrderStatisticsStep( Array: list, L:int, R: int, k:int ) -> list:
 
 	if i == k:
 		return [i,i]
+	
 	if i > k:
-		
-		return [L,i] 
+		return [L, i - 1] 
+
 	if i < k:
-		return [i,R] 
+		return [i + 1, R] 
+
