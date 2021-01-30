@@ -33,7 +33,7 @@ def ArrayChunk(array: list) -> int:
 				res = i2
 
 def KthOrderStatisticsStep( Array: list, L:int, R: int, k:int ) -> list:
-	i = ArrayChunk(Array)
+	i = ArrayChunk(Array[L:R])
 	if i == k:
 		return [i,i]
 	if i > k:
