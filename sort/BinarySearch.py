@@ -10,7 +10,6 @@ class BinarySearch:
 			return None
 
 		index = (self.Right + self.Left)//2 
-
 		if self.arr[index] == n or (self.Right == self.Left and self.arr[self.Left] == n):
 
 			self.Left = index
@@ -29,3 +28,35 @@ class BinarySearch:
 
 	def GetResult(self)->int:
 		return self.isSearch 
+
+
+def GallopingSearch(arr:list, n:int)->bool:
+	i = 1
+	index = int((2**i)-2)
+
+	while (index < len(arr)-1) and (arr[index] < n)  :
+		if index > len(arr)-1:
+			index = len(arr) - 1
+			break
+
+		
+		if arr[index] == n:
+			return True
+		i = i + 1
+		index = int((2**i)-2)
+
+
+	a = BinarySearch(arr)
+	if index - 1 > len(arr):
+		index = len(arr)
+	a.Right = index - 1
+	a.Left = int((2**(i-1))-2) + 1
+	
+	while a.GetResult() == 0:
+		a.Step(n)
+
+	if a.GetResult() == 1:
+		return True
+	else:
+		return False
+
