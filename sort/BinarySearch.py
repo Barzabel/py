@@ -20,9 +20,10 @@ class BinarySearch:
 
 
 		elif self.Right - self.Left <= 2:
-			print("!")
-			for x in self.arr[self.Left:self.Right + 1]:
-				if x == n:
+			for x in range(self.Left,self.Right + 1):
+				if self.arr[x] == n:
+					self.Left = index
+					self.Right = index
 					self.isSearch = 1
 			self.isSearch = -1
 
