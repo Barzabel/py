@@ -8,7 +8,6 @@ class BinarySearch:
 	def  Step(self, n:int):
 		if self.isSearch != 0:
 			return None
-
 		index = (self.Right + self.Left)//2 
 		if self.arr[index] == n or (self.Right == self.Left and self.arr[self.Left] == n):
 
@@ -21,10 +20,11 @@ class BinarySearch:
 
 
 		elif self.Right - self.Left <= 2:
+			print("!")
 			for x in self.arr[self.Left:self.Right + 1]:
 				if x == n:
-					return 1
-			return -1
+					self.isSearch = 1
+			self.isSearch = -1
 
 
 
@@ -33,6 +33,7 @@ class BinarySearch:
 
 		elif self.arr[index] < n:
 			self.Left = index + 1
+			
 	def GetResult(self)->int:
 		return self.isSearch 
 
