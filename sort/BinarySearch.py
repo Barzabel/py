@@ -17,15 +17,22 @@ class BinarySearch:
 			self.isSearch = 1
 
 		elif self.Right - self.Left < 1:
-			
 			self.isSearch = -1
+
+
+		elif self.Right - self.Left <= 2:
+			for x in self.arr[self.Left:self.Right + 1]:
+				if x == n:
+					return 1
+			return -1
+
+
 
 		elif self.arr[index] > n:
 			self.Right = index - 1
 
 		elif self.arr[index] < n:
 			self.Left = index + 1
-
 	def GetResult(self)->int:
 		return self.isSearch 
 
