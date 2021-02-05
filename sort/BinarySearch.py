@@ -18,8 +18,8 @@ class BinarySearch:
 		if self.isSearch != 0:
 			return None
 
-		if self.Right - self.Left <= 2:
-			self._smal(n)
+		if self.Right - self.Left < 2:
+				self._smal(n)
 
 		index = (self.Right + self.Left)//2 
 
@@ -34,16 +34,16 @@ class BinarySearch:
 
 		elif self.arr[index] > n:
 			self.Right = index -1
-			if self.Right - self.Left <= 2:
+			if self.Right - self.Left < 1:
 				self._smal(n)
 
 		elif self.arr[index] < n:
 			self.Left = index + 1
-			if self.Right - self.Left <= 2:
+			if self.Right - self.Left < 1:
 				self._smal(n)
 			
 	def GetResult(self)->int:
-		return self.isSearch 
+		return self.isSearch  
 
 def GallopingSearch(arr:list, n:int)->bool:
 	i = 1
