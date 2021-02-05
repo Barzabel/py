@@ -5,17 +5,21 @@ class BinarySearch:
 		self.Right = len(arr) - 1
 		self.isSearch = 0
 
+	def _smal(self,n):
+		for x in range(self.Left,self.Right + 1):
+				if self.arr[x] == n:
+					self.Left = x
+					self.Right = x
+					self.isSearch = 1
+					return 
+		self.isSearch = -1
+
 	def  Step(self, n:int):
 		if self.isSearch != 0:
 			return None
 
 		if self.Right - self.Left <= 2:
-			for x in range(self.Left,self.Right + 1):
-				if self.arr[x] == n:
-					self.Left = x
-					self.Right = x
-					self.isSearch = 1
-			self.isSearch = -1
+			self._smal(n)
 
 		index = (self.Right + self.Left)//2 
 
@@ -29,14 +33,17 @@ class BinarySearch:
 			self.isSearch = -1
 
 		elif self.arr[index] > n:
-			self.Right = index 
+			self.Right = index -1
+			if self.Right - self.Left <= 2:
+				self._smal(n)
 
 		elif self.arr[index] < n:
-			self.Left = index
+			self.Left = index + 1
+			if self.Right - self.Left <= 2:
+				self._smal(n)
 			
 	def GetResult(self)->int:
 		return self.isSearch 
-
 
 def GallopingSearch(arr:list, n:int)->bool:
 	i = 1
