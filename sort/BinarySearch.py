@@ -22,8 +22,8 @@ class BinarySearch:
 		elif self.Right - self.Left <= 2:
 			for x in range(self.Left,self.Right + 1):
 				if self.arr[x] == n:
-					self.Left = index
-					self.Right = index
+					self.Left = x
+					self.Right = x
 					self.isSearch = 1
 			self.isSearch = -1
 
