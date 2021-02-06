@@ -50,6 +50,10 @@ class BinarySearch:
 			if self.Right - self.Left < 2:
 				self._smal(n)
 			return
+		
+	def GetResult(self)->int:
+		return self.isSearch
+	
 def GallopingSearch(arr:list, n:int)->bool:
 	i = 1
 	index = int((2**i)-2)
