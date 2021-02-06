@@ -72,8 +72,8 @@ def GallopingSearch(arr:list, n:int)->bool:
 	a = BinarySearch(arr)
 	if index - 1 > len(arr):
 		index = len(arr)
-	a.Right = index - 1
-	a.Left = int((2**(i-1))-2) + 1
+	a.Right = index 
+	a.Left = int((2**(i-1))-2) 
 	
 	while a.GetResult() == 0:
 		a.Step(n)
