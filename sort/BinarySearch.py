@@ -69,7 +69,6 @@ def GallopingSearch(arr:list, n:int)->bool:
 		i = i + 1
 		index = int((2**i)-2)
 
-
 	a = BinarySearch(arr)
 	if index - 1 > len(arr):
 		index = len(arr)
