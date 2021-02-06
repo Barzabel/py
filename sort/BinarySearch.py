@@ -11,7 +11,8 @@ class BinarySearch:
 					self.Left = x
 					self.Right = x
 					self.isSearch = 1
-					return 
+					return
+		
 		self.isSearch = -1
 
 	def  Step(self, n:int):
@@ -19,7 +20,8 @@ class BinarySearch:
 			return None
 
 		if self.Right - self.Left < 2:
-				self._smal(n)
+			self._smal(n)
+			return
 
 		index = (self.Right + self.Left)//2 
 
@@ -29,22 +31,25 @@ class BinarySearch:
 			self.Right = index
 			self.isSearch = 1
 
+		elif self.Right - self.Left < 2:
+			self._smal(n)
+			return
+			
 		elif self.Right - self.Left < 1:
 			self.isSearch = -1
+			return
 
 		elif self.arr[index] > n:
 			self.Right = index -1
-			if self.Right - self.Left < 1:
+			if self.Right - self.Left < 2:
 				self._smal(n)
+			return
 
 		elif self.arr[index] < n:
 			self.Left = index + 1
-			if self.Right - self.Left < 1:
+			if self.Right - self.Left < 2:
 				self._smal(n)
-			
-	def GetResult(self)->int:
-		return self.isSearch  
-
+			return
 def GallopingSearch(arr:list, n:int)->bool:
 	i = 1
 	index = int((2**i)-2)
