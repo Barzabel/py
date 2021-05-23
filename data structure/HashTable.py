@@ -29,12 +29,12 @@ class HashTable:
         return index
 
     def find(self, value):
-        hash1 = self.hash_fun(value)
+        start_hash_adress = self.hash_fun(value)
 
-        for x in range(0,self.size,self.step):
-            if self.slots[(hash1+x)%self.size] == value:
-                return (hash1+x)%self.size
-            elif self.slots[(hash1+x)%self.size] == None:
+        for x in range(0, self.size, self.step):
+            if self.slots[(start_hash_adress + x) % self.size] == value:
+                return (start_hash_adress + x) % self.size
+            elif self.slots[(start_hash_adress + x)%self.size] == None:
                 return None
         return None
 
