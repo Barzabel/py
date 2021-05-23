@@ -172,12 +172,12 @@ class Deque:
 
 
 def ispalindrom(val):
-    a = Deque()
+    deque_string = Deque()
     for x in val:
-        a.addTail(x)
-    while a.size()>1:
-        tail = a.removeTail()
-        head = a.removeFront()
+        deque_string.addTail(x)
+    while deque_string.size()>1:
+        tail = deque_string.removeTail()
+        head = deque_string.removeFront()
         if (tail != head):
             return False
     return True
