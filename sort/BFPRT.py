@@ -1,9 +1,9 @@
 
 def median(lst):
-	n = len(lst)
-	if n < 1:
+	max_index = len(lst)
+	if max_index < 1:
 		return None
-	return lst[n//2]
+	return lst[max_index//2]
 
 
 def chunked(size, source):
