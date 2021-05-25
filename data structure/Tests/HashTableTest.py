@@ -7,10 +7,10 @@ class HashTable:
         self.slots = [None] * self.size
 
     def hash_fun(self, value):
-        a = str(value)
+        str_val = str(value)
         res = 0
-        for x in range(len(a)):
-            res = (res//5+ord(a[x]))*13 + 7
+        for x in range(len(str_val)):
+            res = (res//5+ord(str_val[x]))*13 + 7
         return res % self.size
 
     def seek_slot(self, value):
