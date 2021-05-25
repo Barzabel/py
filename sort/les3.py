@@ -26,9 +26,9 @@ def KnuthSequence(array_size: int ) -> list:
 
 
 def sortshel(arr):
-	i = KnuthSequence(len(arr))
+	knuth_sequence_forlen = KnuthSequence(len(arr))
 	res = []
-	for x in i:
+	for x in knuth_sequence_forlen:
 		for n in range(x):
 			res = InsertionSortStep(arr, x, n)
 
